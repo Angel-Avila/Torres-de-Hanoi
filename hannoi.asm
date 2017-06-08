@@ -1,5 +1,16 @@
-# Angel Armando Avila Chavira is697755
-# Cristhian Franco Reynoso    is697163
+# Ángel Armando Ávila Chavira 	IS697755
+# Cristhian Franco Reynoso    	IS697163
+
+
+#  ______                                           __              __  __                                  
+# /\__  _\                                         /\ \            /\ \/\ \                           __    
+# \/_/\ \/   ___   _ __   _ __    __    ____       \_\ \     __    \ \ \_\ \     __      ___     ___ /\_\   
+#    \ \ \  / __`\/\`'__\/\`'__\/'__`\ /',__\      /'_` \  /'__`\   \ \  _  \  /'__`\  /' _ `\  / __`\/\ \  
+#     \ \ \/\ \_\ \ \ \/ \ \ \//\  __//\__, `\    /\ \_\ \/\  __/    \ \ \ \ \/\ \_\.\_/\ \/\ \/\ \_\ \ \ \ 
+#      \ \_\ \____/\ \_\  \ \_\\ \____\/\____/    \ \___,_\ \____\    \ \_\ \_\ \__/.\_\ \_\ \_\ \____/\ \_\
+#       \/_/\/___/  \/_/   \/_/ \/____/\/___/      \/__,_ /\/____/     \/_/\/_/\/__/\/_/\/_/\/_/\/___/  \/_/
+#                                                                                                          
+
 
 .text
 Main:
@@ -39,7 +50,16 @@ Hannoi:
 	add  $a2, $a3, $zero
 	add  $a3, $t2, $zero
 	
-	jal Mover	
+	# Mover
+	lw   $t5, -32($a1)	# Carga el disco del tope de la torre de origen
+	sw   $zero, -32($a1)	# Y lo borramos (pop)
+	
+	sw   $t5, 0($a3)	# Guardamos el disco en la torre de destino
+	
+	addi $a3, $a3, 32	# BP: Modificamos los apuntadores de las torres
+	addi $a1, $a1, -32
+	# /Mover
+		
 # ===================== Segundos swaps =====================
 	add $t2, $a2, $zero	# Swap de torre de inicio con la auxiliar
 	add $a2, $a1, $zero
