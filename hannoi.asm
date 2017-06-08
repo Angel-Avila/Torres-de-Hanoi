@@ -1,13 +1,14 @@
-﻿# Angel Armando Avila Chavira is697755
+# Angel Armando Avila Chavira is697755
 # Cristhian Franco Reynoso    is697163
 
 .text
 Main:
-	addi $s0, $zero, 16		# Numero de discos
+	addi $s0, $zero, 8		# Numero de discos
 	add  $t0, $zero, $s0		# Temporal para llenado
-	addi $a1, $zero, 0x10010000	# a1 torre de inicio
-	add  $a2, $zero, 0x10010004	# a2 torre auxiliar
-	add  $a3, $zero, 0x10010008	# a3 torre destino
+	addi $a1, $zero, 0x1001		# a1 torre de inicio
+	sll  $a1, $a1, 16
+	add  $a2, $a1, 0x4		# a2 torre auxiliar
+	add  $a3, $a2, 0x4		# a3 torre destino
 	addi $s1, $zero, 1		# Variable para comparar si n = 1
 	
 # ===================== Llenado de discos =====================
